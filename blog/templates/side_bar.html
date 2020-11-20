@@ -1,0 +1,83 @@
+      <!-- ======= Blog Page ======= -->
+      <div class="blog-page area-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="page-head-blog">
+                <div class="single-blog-page">
+                  <!-- search option start -->
+                  <form action="#">
+                    <div class="search-option">
+                      <input type="text" placeholder="Search..." />
+                      <button class="button" type="submit">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                  </form>
+                  <!-- search option end -->
+                </div>
+                <div class="single-blog-page">
+                  <!-- recent start -->
+                  <div class="left-blog">
+                    <h4>Featured Posts</h4>
+                    <div class="recent-post">
+                      <!-- start single post -->
+                      {% for featured in featured_post %}
+                      
+                      <div class="recent-single-post">
+                      
+                        <div class="post-img">
+                          <a href="#">
+                            <img src="{{featured.thumbnail.url}}" alt="" />
+                          </a>
+                        </div>
+                        <div class="pst-content">
+                          <p>
+                            <a href="#">
+                              {{featured.summary|truncatewords:10}}</a>
+                          </p>
+                        </div>
+                      </div>
+                      
+                      {% endfor %}
+                      <!-- End single post -->
+                    </div>
+                  </div>
+                  <!-- recent end -->
+                </div>
+                <div class="single-blog-page">
+                  <div class="left-blog">
+                    <h4>categories</h4>
+                    <ul>
+                    {% for cat in category  %}
+                    
+                      <li>
+                        <a href="/category/{{cat.slug}}">{{cat}}</a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    
+                    
+                  </div>
+                </div>
+                
+                
+                <div class="single-blog-page">
+                  <div class="left-tags blog-tags">
+                  {% if featured_tags %}
+                    <div class="popular-tag left-side-tags left-blog">
+                      <h4>featured tags</h4>
+                      <ul>
+                      {% for f_tags in featured_tags %}
+                        <li>
+                          <a href="/tags/{{f_tags}}" class="tags">{{ f_tags }}</a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End left sidebar -->

@@ -1,0 +1,67 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'side_bar.html' %}
+            <!-- Start single blog -->
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <div class="row">
+              {% for post in posts %}
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="single-blog">
+                    <div class="single-blog-img">
+                      <a href="{{post.get_absolute_url}}">
+                        <img src="{{post.thumbnail.url}}" alt="" />
+                      </a>
+                    </div>
+                    <div class="blog-meta">
+                      
+                      <span class="date-type">
+                        <i class="fa fa-calendar"></i>{{post.created_at}}
+                        Posted by - {{post.author}}
+                      </span>
+                    </div>
+                    <div class="blog-text">
+                      <h4>
+                        <a href="#">{{post.title}}</a>
+                      </h4>
+                      <p>
+                       {{post.summary}}
+                      </p>
+                    </div>
+                    <span>
+                      <a href="{{post.get_absolute_url}}" class="ready-btn"
+                        >Read more</a
+                      >
+                    </span>
+                  </div>
+                </div>
+                {% endfor %}
+                <!-- End single blog -->
+                
+                <!-- End single blog -->
+               
+                <!-- End single blog -->
+                <div class="blog-pagination">
+                  <ul class="pagination">
+                  {% comment %} {% if page.has_previous %}
+                    <li><a href="?page={{ page.previous_page_number }}">Previous</a></li>
+                  {% endif %}
+                    <li class="active"><span class="current">
+                    Page {{ page.number }} of {{ page.paginator.num_pages }}.</span></li>
+                    {% if page.has_next %}
+                    <li><a href="?page={{ page.next_page_number }}">Next</a></li>
+                    {% endif %} {% endcomment %}
+                    {% include 'pagination.html' with page=posts %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Blog Page -->
+    </main>
+    <!-- End #main -->
+
+    {% endblock content %}
