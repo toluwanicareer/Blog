@@ -5,9 +5,10 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>eBusiness Bootstrap Template - Index</title>
-    <meta content="" name="descriptison" />
-    <meta content="" name="keywords" />
+    <title>Blog | Cordial Exchange</title>
+    <meta content="{{post.meta_title}}" name="title" />
+    <meta content="{{post.meta_description}}" name="description" />
+    <meta content="{{post.keywords}}" name="keywords" />
 
     <!-- Favicons -->
     {% comment %} <link href="/static/img/favicon.png" rel="icon" />
@@ -71,13 +72,9 @@
 
         <nav class="nav-menu d-none d-lg-block">
           <ul>
-            <li class="active"><a href="#header">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="https://giftcard.cordialexchange.com">Giftcard</a></li>
+            <li><a href="https://www.cordialexchange.com/login">Get Started</a></li>
           </ul>
         </nav>
         <!-- .nav-menu -->
@@ -99,14 +96,14 @@
                     data-wow-duration="1s"
                     data-wow-delay=".4s"
                   >
-                    <h1 class="title2">My Blog</h1>
+                    <h1 class="title2">Welcome To Our Blog</h1>
                   </div>
                   <div
                     class="layer3 wow zoomInUp"
                     data-wow-duration="2s"
                     data-wow-delay="1s"
                   >
-                    <h2 class="title3">Profesional Blog Page</h2>
+                    <h2 class="title3">All About Bitcoin, Giftcard, Cryptocurrency and Lots More...</h2>
                   </div>
                 </div>
               </div>
