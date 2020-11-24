@@ -6,14 +6,14 @@
               <div class="page-head-blog">
                 <div class="single-blog-page">
                   <!-- search option start -->
-                  <form action="#">
+                  {% comment %} <form name="SearchForm" method="GET" action="{% url 'post_search' %}">
                     <div class="search-option">
-                      <input type="text" placeholder="Search..." />
+                      <input type="text" name="SearchForm" placeholder="Search..." />
                       <button class="button" type="submit">
                         <i class="fa fa-search"></i>
                       </button>
                     </div>
-                  </form>
+                  </form> {% endcomment %}
                   <!-- search option end -->
                 </div>
                 <div class="single-blog-page">
@@ -34,7 +34,7 @@
                         <div class="pst-content">
                           <p>
                             <a href="#">
-                              {{featured.summary|truncatewords:10}}</a>
+                              {{featured.summary|truncatewords:10|safe}}</a>
                           </p>
                         </div>
                       </div>
@@ -75,9 +75,22 @@
                         {% endfor %}
                       </ul>
                     </div>
+                    <div class="left-blog">
+                      <h4>Similar Posts</h4>
+                      <ul>
+                      {% for post in similar_posts %}
+                        <li>
+                          <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </li>
+                        {% empty %} There are no similar posts yet. {% endfor %}</div>
+                        </ul>
                 {% endif %}
                   </div>
                 </div>
               </div>
             </div>
             <!-- End left sidebar -->
+
+          
+            
+                

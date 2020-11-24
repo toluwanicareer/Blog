@@ -280,7 +280,7 @@ div#preloader {
 }
 
 .header-bg {
-  background: url(../img/slider/hd.jpg);
+  background: url(../img/slider/abb.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -1853,7 +1853,7 @@ preview-2
 }
 
 .single-blog .ready-btn:hover {
-  border: 1px solid #3EC1D5;
+  border: 1px solid #f7921a;
   color: #fff;
 }
 
@@ -1888,12 +1888,12 @@ preview-2
 }
 
 .search-option button:hover {
-  color: #3ec1d5;
+  color: #f7921a;
 }
 
 .left-blog h4 {
   border-bottom: 1px solid #ddd;
-  color: #444;
+  color: #000;
   font-size: 17px;
   font-weight: 500;
   margin-bottom: 0;
@@ -1946,8 +1946,8 @@ preview-2
 
 .ready-btn:hover {
   color: #fff;
-  background: #3EC1D5;
-  border: 1px solid #3EC1D5;
+  background: #f7921a;
+  border: 1px solid #000;
   text-decoration: none;
 }
 
@@ -1965,7 +1965,7 @@ preview-2
 }
 
 .pst-content p a:hover, .left-blog ul li a:hover {
-  color: #3EC1D5;
+  color: #f7921a;
 }
 
 .blog-page .single-blog {
@@ -2010,8 +2010,16 @@ preview-2
   width: auto;
 }
 
+.left-tags .left-side-tags ul li a:hover {
+  background: #f7921a;
+}
+
 .left-side-tags h4 {
   margin-bottom: 15px;
+}
+
+.single-blog-page .left-blog h4 {
+  font-weight: bold;
 }
 
 /*--------------------------------------------------------------
@@ -2034,7 +2042,7 @@ preview-2
 }
 
 .entry-meta span a:hover {
-  color: #3EC1D5;
+  color: #f7921a;
 }
 
 .post-information .entry-meta {
@@ -2047,16 +2055,16 @@ preview-2
 }
 
 .entry-content > p {
-  color: #444;
+  color: #000;
 }
 
 .entry-meta > span {
-  color: #444;
+  color: #000;
 }
 
 .entry-content blockquote {
   background: #fff none repeat scroll 0 0;
-  border-left: 5px solid #3EC1D5;
+  border-left: 5px solid #f7921a;
   font-size: 17.5px;
   font-style: italic;
   margin: 0 0 20px 40px;
@@ -2064,8 +2072,8 @@ preview-2
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  background-color: #3EC1D5;
-  border-color: #3EC1D5;
+  background-color: #f7921a;
+  border-color: #f7921a;
   color: #fff;
   cursor: default;
   z-index: 3;
@@ -2105,8 +2113,8 @@ preview-2
 }
 
 .sharing-icon a:hover {
-  color: #3EC1D5;
-  border: 1px solid #3EC1D5;
+  color: #f7921a;
+  border: 1px solid #f7921a;
 }
 
 .single-blog .author-avatar {
@@ -2268,6 +2276,11 @@ span.email-notes {
   padding-top: 30px;
 }
 
+.left-tags .single-blog-page .popular-tag .left-side-tags .left-blog ul li a:hover {
+  background-color: #f7921a;
+  color: #fff;
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -2302,7 +2315,7 @@ span.email-notes {
 }
 
 .footer-logo h2 span {
-  color: #3ec1d5;
+  color: #f7921a;
 }
 
 .footer-icons ul li {
@@ -2333,7 +2346,7 @@ span.email-notes {
 }
 
 .footer-contacts p span {
-  color: #3EC1D5;
+  color: #f7921a;
   font-weight: 700;
 }
 
@@ -2347,8 +2360,8 @@ span.email-notes {
 }
 
 .popular-tag ul li a:hover, .footer-icons ul li a:hover {
-  background: #3EC1D5;
-  border: 1px solid #3EC1D5;
+  background: #f7921a;
+  border: 1px solid #000;
   color: #fff;
 }
 
@@ -2376,7 +2389,7 @@ span.email-notes {
 
 .copyright-text a:hover {
   text-decoration: underline;
-  color: #3EC1D5;
+  color: #f7921a;
 }
 
 .copyright-text a {
@@ -2389,7 +2402,7 @@ span.email-notes {
 }
 
 .copyright a, .credits a {
-  color: #3EC1D5;
+  color: #f7921a;
 }
 
 .credits {

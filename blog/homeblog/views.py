@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.postgres.search import SearchVector
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 import pdb
+from django.views.generic.edit import CreateView
 
 
 def post_list(request,  tag_slug=None):
@@ -87,7 +88,7 @@ def post_search(request):
             search_query = SearchQuery(query)
             results = Post.objects.annotate(
             search=search_vector, rank=SearchRank(search_vector, search_query)
-            ).filter(rank__gte=0.3).order_by('-rank')
+            ).filter(rank__gte=0.3).order_by('-created_at')
 
     return render(request,'search.html',
             {'form': form,
@@ -139,3 +140,13 @@ def categoryPost(request, category_slug):
         'featured_post': featured_post,
         
     })
+
+# def NewPostView(request):
+#     posting = Post.objects.all()
+
+#     return render (request, 'post_new.html', {'posting': posting})
+
+class BlogCreateView(CreateView): 
+    model = Post
+    template_name = 'post_new.html'
+    fields = ['title', 'author', 'body']

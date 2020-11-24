@@ -26,13 +26,12 @@
                         <a href="#">{{post.title}}</a>
                       </h4>
                       <p>
-                       {{post.summary}}
+                       {{post.summary|safe}}
                       </p>
                     </div>
                     <span>
                       <a href="{{post.get_absolute_url}}" class="ready-btn"
-                        >Read more</a
-                      >
+                        >Read more</a>
                     </span>
                   </div>
                 </div>

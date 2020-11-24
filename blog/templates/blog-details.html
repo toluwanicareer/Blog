@@ -23,9 +23,9 @@
                       {% comment %} <span><i class="fa fa-comments-o"></i> <a href="#">6 comments</a></span> {% endcomment %}
                     </div>
                     <div class="entry-content">
-                      <p>{{post.body}}</p>
+                      {{post.body|safe}}
                       <blockquote>
-                        <p>{{post.summary}}</p>
+                        {{post.summary|safe}}
                       </blockquote>
                     </div>
                   </div>

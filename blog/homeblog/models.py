@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from tinymce.models import HTMLField
 
 
 class Category(models.Model):
@@ -35,9 +36,9 @@ class Post(models.Model):
     )
     title = models.CharField(max_length=50)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    body = models.TextField()
+    body = HTMLField()
     thumbnail = models.ImageField(upload_to='images/')
-    summary = models. TextField()
+    summary = models.TextField()
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     publish = models.DateTimeField(default=timezone.now)
@@ -46,7 +47,7 @@ class Post(models.Model):
     tags = TaggableManager()
     meta_title = models.CharField(max_length=50)
     meta_description = models.TextField()
-    keywords = models.TextField()
+    keywords = models.CharField(max_length=100)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     featured = models.BooleanField(default=False)
 

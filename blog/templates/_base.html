@@ -75,6 +75,9 @@
             <li class="active"><a href="{% url 'home' %}">Home</a></li>
             <li><a href="https://giftcard.cordialexchange.com">Giftcard</a></li>
             <li><a href="https://www.cordialexchange.com/login">Get Started</a></li>
+            {% comment %} {% if user.is_authenticated %}
+              <li><a href="{% url 'post_new' %}">Create Post</a></li>
+            {% endif %} {% endcomment %}
           </ul>
         </nav>
         <!-- .nav-menu -->
@@ -129,7 +132,7 @@
                   <h2>Cordial Exchange</h2>
                 </div>
 
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                <p>Cordial Exchange is a customer-centric, professional brand providing optimum Giftard services. We buy all major Giftards like iTunes Giftards, Amazon Giftards, Google Play Giftards, and give instant payment in Naira.</p>
                 <div class="footer-icons">
                   <ul>
                     <li>
