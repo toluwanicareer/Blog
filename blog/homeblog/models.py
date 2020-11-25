@@ -36,7 +36,7 @@ class Post(models.Model):
     )
     title = models.CharField(max_length=50)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    body = models.TextField(null=False, blank=False)
+    body = HTMLField(null=False, blank=False)
     thumbnail = models.ImageField(upload_to='images/')
     summary = models.TextField(null=False, blank=False)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
