@@ -57,6 +57,8 @@
 
     <!-- Template Main CSS File -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+    <script src="https://cdn.tiny.cloud/1/asaiq8ufshaej6j2hkt9mw8h1h9s4i6q5lfrt34odv2ijhkk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   </head>
 
   <body data-spy="scroll" data-target="#navbar-example">
@@ -75,6 +77,9 @@
             <li class="active"><a href="{% url 'home' %}">Home</a></li>
             <li><a href="https://giftcard.cordialexchange.com">Giftcard</a></li>
             <li><a href="https://www.cordialexchange.com/login">Get Started</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'post_new' %}">Create Post</a></li>
+            {% endif %}
             {% comment %} {% if user.is_authenticated %}
               <li><a href="{% url 'post_new' %}">Create Post</a></li>
             {% endif %} {% endcomment %}
@@ -120,6 +125,10 @@
 
       {% endblock content %}
 
+
+      
+
+
       <!-- ======= Footer ======= -->
    <footer>    
           <div class="footer-area">
@@ -132,7 +141,11 @@
                   <h2>Cordial Exchange</h2>
                 </div>
 
-                <p>Cordial Exchange is a customer-centric, professional brand providing optimum Giftard services. We buy all major Giftards like iTunes Giftards, Amazon Giftards, Google Play Giftards, and give instant payment in Naira.</p>
+                <p>Cordial Exchange is a Nigerian company duly registered with the Corporate Affairs Commission.
+                We are the long awaited solution to making your transition and journey into the usage of digital
+                assets comfortable. Our services include: Buying and selling of Bitcoin, Purchase of Giftcards,
+                Refill and Dollar exchange from Perfect Money and Payoneer wallets.
+                We provide zero stress, zero complexities and zero delay as we help you navigate to the future of finance.</p>
                 <div class="footer-icons">
                   <ul>
                     <li>
@@ -149,6 +162,11 @@
               </div>
             </div>
           </div>
+
+
+          
+
+
           <!-- end single footer -->
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="footer-content">
@@ -200,6 +218,10 @@
                </div>
             </div>
          </div>
+
+        
+
+
    </footer><!-- End  Footer -->
 
    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -209,7 +231,6 @@
    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-   <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
    <script src="{% static 'vendor/appear/jquery.appear.js' %}"></script>
    <script src="{% static 'vendor/knob/jquery.knob.js' %}"></script>
    <script src="{% static 'vendor/parallax/parallax.js' %}"></script>

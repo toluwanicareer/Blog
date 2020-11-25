@@ -20,17 +20,22 @@ class CommentForm(forms.ModelForm):
 class SearchForm(forms.Form):
     query = forms.CharField()
 
-class NewPostForm(ModelForm):
+class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = "__all__"
+        fields = '__all__'
 
-    def __init__(self, *args, **kwargs):
-        super(NewPostForm, self).__init__(*args, **kwargs)
-        for field in iter(self.fields):
-            self.fields[field].widget.attrs.update({
-                'class': 'form-control'
-            })
+# class NewPostForm(ModelForm):
+#     class Meta:
+#         model = Post
+#         fields = "__all__"
+
+#     def __init__(self, *args, **kwargs):
+#         super(NewPostForm, self).__init__(*args, **kwargs)
+#         for field in iter(self.fields):
+#             self.fields[field].widget.attrs.update({
+#                 'class': 'form-control'
+#             })
 
 
 class TinyMCEWidget(TinyMCE): 

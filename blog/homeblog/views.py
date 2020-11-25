@@ -1,13 +1,13 @@
 from .models import Category, Post
 from django.shortcuts import render, get_object_or_404
-from .forms import CommentForm, SearchForm
+from .forms import CommentForm, SearchForm, PostForm
 from taggit.models import Tag
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.postgres.search import SearchVector
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 import pdb
-from django.views.generic.edit import CreateView
+# from django.views.generic.edit import CreateView
 
 
 def post_list(request,  tag_slug=None):
@@ -26,13 +26,14 @@ def post_list(request,  tag_slug=None):
         posts = paginator.page(paginator.num_pages)
     category = Category.objects.all()
     featured_post = Post.objects.filter(featured=True)
+    latest_posts = Post.objects.filter().order_by('-publish')[0:4]
    
    
     return render(request, 'blog.html', {'page':page, 
         'posts': posts, 
         'category':category, 
         'featured_post': featured_post,
-        
+        'latest_posts': latest_posts,
     })
 
 def post_detail(request, post):
@@ -63,6 +64,7 @@ def post_detail(request, post):
     category = Category.objects.all()
     featured_post = Post.objects.filter(featured=True)
     tags = post.tags.names()
+    latest_posts = Post.objects.filter().order_by('-publish')[0:4]
     
 
     return render(request, 'blog-details.html', {'post': post, 
@@ -73,6 +75,7 @@ def post_detail(request, post):
         'category':category,
         'featured_post': featured_post,
         'featured_tags':tags,
+        'latest_posts': latest_posts,
         })
 
     
@@ -146,7 +149,30 @@ def categoryPost(request, category_slug):
 
 #     return render (request, 'post_new.html', {'posting': posting})
 
-class BlogCreateView(CreateView): 
-    model = Post
-    template_name = 'post_new.html'
-    fields = ['title', 'author', 'body']
+# class BlogCreateView(CreateView): 
+#     model = Post
+#     template_name = 'post_new.html'
+#     fields = ('__all__')
+
+
+# class BlogUpdateView(UpdateView):
+#     model = Post
+#     template_name = 'post_edit.html'
+#     fields = ('__all__')
+
+def new_blog_post(request):
+    blog = Post.objects.all()
+    new_post = None
+    if request.method == 'POST':
+        # A comment was posted
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            # Create Comment object but don't save to database yet
+            new_post = post_form.save(commit=False)
+            # Save the comment to the database
+            new_post.save()
+    else:
+        post_form = PostForm()
+
+    return render(request, 'post_new.html', {'blog': blog,
+    'new_post': new_post, 'post_form': post_form})

@@ -28,10 +28,10 @@
                       
                         <div class="post-img">
                           <a href="#">
-                            <img src="{{featured.thumbnail.url}}" alt="" />
+                            <img src="{{featured.thumbnail.url}}" alt="{{featured.title}}" />
                           </a>
                         </div>
-                        <div class="pst-content">
+                        <div id="colored" class="pst-content">
                           <p>
                             <a href="#">
                               {{featured.summary|truncatewords:10|safe}}</a>
@@ -45,21 +45,34 @@
                   </div>
                   <!-- recent end -->
                 </div>
+
+                <div class="single-blog-page">
+                  <div class="left-blog">
+                    <h4>latest posts</h4>
+                    <ul>
+                      {% for post in latest_posts %}
+                        <li>
+                          <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        </li>
+                      {% endfor %}
+                      </ul>
+                  </div>
+                </div>
+
                 <div class="single-blog-page">
                   <div class="left-blog">
                     <h4>categories</h4>
                     <ul>
                     {% for cat in category  %}
-                    
                       <li>
                         <a href="/category/{{cat.slug}}">{{cat}}</a>
                       </li>
                       {% endfor %}
                     </ul>
-                    
-                    
                   </div>
                 </div>
+
+                
                 
                 
                 <div class="single-blog-page">
