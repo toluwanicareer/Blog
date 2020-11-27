@@ -7,6 +7,7 @@ from tinymce.widgets import TinyMCE
 
 
 
+
 # class PostForm(forms.ModelForm):
 #     class Meta:
 #         model = Post
@@ -21,9 +22,16 @@ class SearchForm(forms.Form):
     query = forms.CharField()
 
 class PostForm(ModelForm):
+
+    # def __init__(self, *args, **kwargs):
+    #     super(PostForm, self).__init__(*args, **kwargs)
+    #     self.fields['thumbnail'].required = False
+
     class Meta:
         model = Post
         fields = '__all__'
+
+
 
 # class NewPostForm(ModelForm):
 #     class Meta:

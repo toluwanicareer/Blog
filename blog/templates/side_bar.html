@@ -28,7 +28,9 @@
                       
                         <div class="post-img">
                           <a href="#">
+                          {% if featured.thumbnail %}
                             <img src="{{featured.thumbnail.url}}" alt="{{featured.title}}" />
+                          {% endif %}
                           </a>
                         </div>
                         <div id="colored" class="pst-content">
@@ -95,7 +97,7 @@
                         <li>
                           <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                         </li>
-                        {% empty %} There are no similar posts yet. {% endfor %}</div>
+                        {% empty %} <p><em>There are no similar posts yet.</em></p> {% endfor %}</div>
                         </ul>
                 {% endif %}
                   </div>

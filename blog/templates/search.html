@@ -68,11 +68,12 @@
         <h2>Add A New Post</h2>
     </div>
     <div id="formpost">
-        <form class="formact" action="" method="POST">
-            
+        <form enctype="multipart/form-data" action="" method="POST">
+            {% csrf_token %}
             {{post_form|crispy}}
-            <textarea name="" id="" cols="30" rows="10" style="visibility: hidden; display: none;" hidden></textarea>
             <input type="submit" value="Save">
+            <textarea name="" id="" cols="30" rows="10" style="visibility: hidden; display: none;" hidden></textarea>
+            
         </form>
     </div>
 

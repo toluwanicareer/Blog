@@ -11,22 +11,24 @@
                   <div class="single-blog">
                     <div class="single-blog-img">
                       <a href="{{post.get_absolute_url}}">
+                      {% if post.thumbnail %}
                         <img src="{{post.thumbnail.url}}" alt="" />
+                      {% endif %}
                       </a>
                     </div>
-                    <div class="blog-meta">
+                    <div id="do" class="blog-meta">
                       
                       <span class="date-type">
                         <i class="fa fa-calendar"></i>{{post.created_at}}
                         Posted by - {{post.author}}
                       </span>
                     </div>
-                    <div class="blog-text">
+                    <div id="titles" class="blog-text">
                       <h4>
-                        <a href="#">{{post.title}}</a>
+                        <a href="{{post.get_absolute_url}}">{{post.title}}</a>
                       </h4>
                       <p>
-                       {{post.summary|safe}}
+                       <span style="color: black; font-weight: bold;">{{post.summary|truncatewords:30|safe}}</span>
                       </p>
                     </div>
                     <span>

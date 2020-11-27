@@ -12,7 +12,9 @@
                 
                 <article class="blog-post-wrapper">
                   <div class="post-thumbnail">
+                    {% if post.thumbnail %}
                     <img src="{{post.thumbnail.url}}" alt="{{post.title}}" />
+                    {% endif %}
                   </div>
                   <div class="post-information">
                     <h2>{{post.title}}</h2>
@@ -30,6 +32,12 @@
                     </div>
                   </div>
                 </article>
+                {% if user.is_authenticated %}
+                  <div class="delup">
+                    <a class="btn btn-primary" href="{% url 'update' post.slug %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'delete' post.slug %}">Delete</a>
+                  </div>
+              {% endif %}
                 
                 
                 

@@ -1,20 +1,78 @@
-<!-- {% block title %}Log In{% endblock title %} -->
+{% load static %}
+
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Vendor CSS Files -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.2.0/css/ionicons.min.css"
+        integrity="sha256-F3Xeb7IIFr1QsWD113kV2JXaEbjhsfpgrKkwZFGIA4E="
+        crossorigin="anonymous"
+      />
+      <link
+        href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+        rel="stylesheet"
+      />
+      <link
+        href="{% static 'vendor/icofont/icofont.min.css' %}"
+        rel="stylesheet"
+      />
+      <link
+        href="{% static 'vendor/animate.css/animate.min.css' %}"
+        rel="stylesheet"
+      />
+      <link
+        href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}"
+        rel="stylesheet"
+      />
+      <link
+        href="{% static 'vendor/nivo-slider/css/nivo-slider.css' %}"
+        rel="stylesheet"
+      />
+      <link
+        href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}"
+        rel="stylesheet"
+      />
+      <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet" />
+  
+      <!-- Template Main CSS File -->
+      <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     
 </head>
 <body>
-    
-<h2>Log In</h2>
-<form method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<button type="submit">Log In</button>
-</form>
+<div class="formdesign">
+    <h2>Log In</h2>
+    <form method="post">
+    <span>{% csrf_token %}
+    {{ form|crispy }}</span>
+    <button class="btn btn-success" type="submit">Log In</button>
+    </form>
+</div>
 
+
+
+
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+<script src="{% static 'vendor/appear/jquery.appear.js' %}"></script>
+<script src="{% static 'vendor/knob/jquery.knob.js' %}"></script>
+<script src="{% static 'vendor/parallax/parallax.js' %}"></script>
+<script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/nivo-slider/js/jquery.nivo.slider.js' %}"></script>
+<script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

@@ -10,10 +10,6 @@
     <meta content="{{post.meta_description}}" name="description" />
     <meta content="{{post.keywords}}" name="keywords" />
 
-    <!-- Favicons -->
-    {% comment %} <link href="/static/img/favicon.png" rel="icon" />
-    <link href="/static/img/apple-touch-icon.png" rel="apple-touch-icon" /> {% endcomment %}
-
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/fav.png' %}"/>
 
     <!-- Google Fonts -->
@@ -79,6 +75,7 @@
             <li><a href="https://www.cordialexchange.com/login">Get Started</a></li>
             {% if user.is_authenticated %}
               <li><a href="{% url 'post_new' %}">Create Post</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
             {% endif %}
             {% comment %} {% if user.is_authenticated %}
               <li><a href="{% url 'post_new' %}">Create Post</a></li>
@@ -111,7 +108,7 @@
                     data-wow-duration="2s"
                     data-wow-delay="1s"
                   >
-                    <h2 class="title3">All About Bitcoin, Giftcard, Cryptocurrency and Lots More...</h2>
+                    <h2 class="title3">Providing Insights To Teach, Support and Grow</h2>
                   </div>
                 </div>
               </div>
@@ -149,13 +146,13 @@
                 <div class="footer-icons">
                   <ul>
                     <li>
-                      <a href="https://twitter.com/Cordialexchang1?s=09"><i class="fa fa-facebook"></i></a>
+                      <a href="https://www.facebook.com/cordialexchange/"><i class="fa fa-facebook"></i></a>
                     </li>
                     <li>
-                      <a href="https://www.facebook.com/cordialexchange/"><i class="fa fa-twitter"></i></a>
+                      <a href="https://twitter.com/Cordialexchang1?s=09"><i class="fa fa-twitter"></i></a>
                     </li>
                     <li>
-                      <a href="#"><i class="fa fa-instagram"></i></a>
+                      <a href="https://www.instagram.com/cordial.exchange"><i class="fa fa-instagram"></i></a>
                     </li>
                   </ul>
                 </div>
@@ -188,12 +185,12 @@
               <div class="footer-head">
                 <h4>Instagram</h4>
                 <div class="flicker-img">
-                  <a href="#"><img src="/static/img/portfolio/1.jpg" alt=""></a>
-                  <a href="#"><img src="/static/img/portfolio/2.jpg" alt=""></a>
-                  <a href="#"><img src="/static/img/portfolio/3.jpg" alt=""></a>
-                  <a href="#"><img src="/static/img/portfolio/4.jpg" alt=""></a>
-                  <a href="#"><img src="/static/img/portfolio/5.jpg" alt=""></a>
-                  <a href="#"><img src="/static/img/portfolio/6.jpg" alt=""></a>
+                  <a href="https://www.instagram.com/cordial.exchange"><img src="/static/img/portfolio/1.jpg" alt=""></a>
+                  <a href="https://www.instagram.com/cordial.exchange"><img src="/static/img/portfolio/2.jpg" alt=""></a>
+                  <a href="https://www.instagram.com/cordial.exchange"><img src="/static/img/portfolio/3.jpg" alt=""></a>
+                  <a href="https://www.instagram.com/cordial.exchange"><img src="/static/img/portfolio/4.jpg" alt=""></a>
+                  <a href="https://www.instagram.com/cordial.exchange"><img src="/static/img/portfolio/5.jpg" alt=""></a>
+                  <a href="https://www.instagram.com/cordial.exchange"><img src="/static/img/portfolio/6.jpg" alt=""></a>
                 </div>
               </div>
             </div>

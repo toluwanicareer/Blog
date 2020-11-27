@@ -1332,24 +1332,30 @@ preview-2
 }
 
 .blog-text h4 a {
-  color: #444;
+  color: #000;
   text-decoration: none;
+  font-size: 24px;
 }
 
 .blog-text h4 {
-  color: #444;
+  color: #000;
   margin-bottom: 15px;
 }
 
+.blog-text #titles p span {
+  color: #000;
+  font-weight: bold;
+}
+
 .blog-btn {
-  border-bottom: 1px dotted #444;
-  color: #444;
+  border-bottom: 1px dotted #000;
+  color: #000;
   text-decoration: none;
 }
 
 .blog-btn {
-  border-bottom: 1px dotted #444;
-  color: #444;
+  border-bottom: 1px dotted #000;
+  color: #000;
   display: inline-block;
   padding: 0 1px 5px 0;
   position: relative;
@@ -1374,7 +1380,7 @@ preview-2
 }
 
 .blog-btn:hover {
-  color: #333;
+  color: #f7921a;
   text-decoration: none;
 }
 
@@ -1391,7 +1397,7 @@ preview-2
 }
 
 .blog-content .blog-meta {
-  border-bottom: 1px dotted #333;
+  border-bottom: 1px dotted #000;
 }
 
 .blog-meta {
@@ -1415,13 +1421,13 @@ preview-2
 }
 
 .single-blog .ready-btn {
-  border: 1px solid #444;
+  border: 1px solid #000;
   border-radius: 30px;
-  color: #444;
+  color: #000;
   cursor: pointer;
   display: inline-block;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
   margin-top: 10px;
   padding: 10px 20px;
   text-align: center;
@@ -1432,6 +1438,9 @@ preview-2
 .single-blog .ready-btn:hover {
   border: 1px solid #f7921a;
   color: #fff;
+}
+.col-md-12 .single-blog .blog-meta .date-type #do span {
+  color: #000;
 }
 
 /*--------------------------------------------------------------
@@ -1470,7 +1479,7 @@ preview-2
 
 .left-blog h4 {
   border-bottom: 1px solid #ddd;
-  color: #000;
+  color: #fff;
   font-size: 17px;
   font-weight: 500;
   margin-bottom: 0;
@@ -1479,10 +1488,24 @@ preview-2
 }
 
 .left-blog {
-  background: #f9f9f9 none repeat scroll 0 0;
+  background: #242438 none repeat scroll 0 0;
   margin-bottom: 30px;
   overflow: hidden;
   padding-bottom: 20px;
+}
+
+.left-blog ul li:hover a:hover {
+  background-color: #f7921a;
+  color: #fff;
+  font-size: 18px;
+  font-size: bold;
+}
+
+.left-blog .pst-content p a:hover {
+  background-color: #f7921a;
+  color: #fff;
+  font-size: 16px;
+  font-size: bold;
 }
 
 .left-blog li {
@@ -1490,8 +1513,12 @@ preview-2
   display: block;
 }
 
+.single-blog-page .left-tags .popular-tag ul ul a{
+  color: #fff;
+}
+
 .left-blog ul li a {
-  color: #000;
+  color: #fff;
   display: block;
   font-size: 14px;
   padding: 10px;
@@ -1532,7 +1559,8 @@ preview-2
   display: inline-block;
   float: left;
   padding: 0 5px;
-  width: 35%;
+  width: 100px;
+  height: 50px;
 }
 
 .pst-content {
@@ -1550,7 +1578,7 @@ preview-2
 }
 
 .pst-content p a {
-  color: #444;
+  color: #fff;
   font-size: 15px;
 }
 
@@ -1566,12 +1594,18 @@ preview-2
   border-bottom: 0;
 }
 
+.left-blog ul em {
+  color: #fff;
+  padding-left: 7px;
+}
+
 .popular-tag.left-blog ul li a:hover {
   color: #fff;
 }
 
-.popular-tag.left-side-tags.left-blog ul {
+.popular-tag .left-side-tags .left-blog ul {
   padding: 0 10px;
+  color: #fff;
 }
 
 .blog-1 .banner-box {
@@ -1589,6 +1623,10 @@ preview-2
 
 .left-tags .left-side-tags ul li a:hover {
   background: #f7921a;
+}
+
+.left-tags .left-side-tags ul li a {
+  color: #fff;
 }
 
 .left-side-tags h4 {
@@ -1656,6 +1694,16 @@ preview-2
   color: #fff;
   cursor: default;
   z-index: 3;
+}
+
+.pagination .step-links a {
+  color: #000;
+  font-weight: bold;
+}
+
+.pagination .step-links a:hover {
+  background-color: #f7921a;
+  color: #fff;
 }
 
 .social-sharing {
@@ -2250,4 +2298,26 @@ span.email-notes {
 }
 
 
+
+
+
+.formdesign h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.formdesign form span {
+  align-items: center;
+  align-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  justify-content: center;
+  justify-items: center;
+
+}
+
+.delup a {
+  font-weight: bold;
+}
 

@@ -1,48 +1,48 @@
-(function ($) {
-    'use strict';
+// (function ($) {
+//     'use strict';
 
-    /*[ File Input Config ]
-        ===========================================================*/
+//     /*[ File Input Config ]
+//         ===========================================================*/
     
-    try {
+//     try {
     
-        var file_input_container = $('.js-input-file');
+//         var file_input_container = $('.js-input-file');
     
-        if (file_input_container[0]) {
+//         if (file_input_container[0]) {
     
-            file_input_container.each(function () {
+//             file_input_container.each(function () {
     
-                var that = $(this);
+//                 var that = $(this);
     
-                var fileInput = that.find(".input-file");
-                var info = that.find(".input-file__info");
+//                 var fileInput = that.find(".input-file");
+//                 var info = that.find(".input-file__info");
     
-                fileInput.on("change", function () {
+//                 fileInput.on("change", function () {
     
-                    var fileName;
-                    fileName = $(this).val();
+//                     var fileName;
+//                     fileName = $(this).val();
     
-                    if (fileName.substring(3,11) == 'fakepath') {
-                        fileName = fileName.substring(12);
-                    }
+//                     if (fileName.substring(3,11) == 'fakepath') {
+//                         fileName = fileName.substring(12);
+//                     }
     
-                    if(fileName == "") {
-                        info.text("No file chosen");
-                    } else {
-                        info.text(fileName);
-                    }
+//                     if(fileName == "") {
+//                         info.text("No file chosen");
+//                     } else {
+//                         info.text(fileName);
+//                     }
     
-                })
+//                 })
     
-            });
+//             });
     
-        }
+//         }
     
     
     
-    }
-    catch (e) {
-        console.log(e);
-    }
+//     }
+//     catch (e) {
+//         console.log(e);
+//     }
 
-})(jQuery);
+// })(jQuery);

@@ -1,0 +1,21 @@
+<!-- {% block title %}Log In{% endblock title %} -->
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    
+<h2>Log Out</h2>
+<form method="post">
+{% csrf_token %}
+{{ form|crispy }}
+<button type="submit">Log Out</button>
+</form>
+
+</body>
+</html>

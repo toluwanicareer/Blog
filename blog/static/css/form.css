@@ -699,3 +699,48 @@ textarea {
     padding: 50px 30px;
   }
 }
+
+.asteriskField {
+  display: none;
+}
+
+
+.main .delete h2 {
+  font-weight: bold;
+  padding: 20px;
+}
+
+.btn .btn-danger {
+  padding: 50%;
+}
+
+.main .delete input {
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.main .delete input:hover {
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 20px;
+}
+
+@media (max-width: 765px) {
+
+}
+
+.main .delete a {
+  font-weight: bold;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.main .delete a:hover {
+  font-weight: bold;
+  font-size: 30px;
+  color: #fff;
+  border-radius: 20px;
+}
