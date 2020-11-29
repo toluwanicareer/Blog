@@ -31,7 +31,7 @@ def post_list(request,  tag_slug=None):
    
     return render(request, 'blog.html', {'page':page, 
         'posts': posts, 
-        'category':category, 
+        'category': category, 
         'featured_post': featured_post,
         'latest_posts': latest_posts,
     })
