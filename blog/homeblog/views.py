@@ -1,6 +1,7 @@
+from django.urls.base import reverse_lazy
 from .models import Category, Post
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import CommentForm, SearchForm, PostForm
+from .forms import SearchForm, PostForm
 from taggit.models import Tag
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -41,22 +42,6 @@ def post_detail(request, post):
         status='published',
         )
 
-    # List of active comments for this post
-    comments = post.comments.filter(active=True)
-    new_comment = None
-    if request.method == 'POST':
-        # A comment was posted
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            # Create Comment object but don't save to database yet
-            new_comment = comment_form.save(commit=False)
-            # Assign the current post to the comment
-            new_comment.post = post
-            # Save the comment to the database
-            new_comment.save()
-    else:
-        comment_form = CommentForm()
-
     # List of similar posts
     post_tags_ids = post.tags.values_list('id', flat=True)
     similar_posts = Post.objects.filter(tags__in=post_tags_ids).exclude(id=post.id)
@@ -68,9 +53,6 @@ def post_detail(request, post):
     
 
     return render(request, 'blog-details.html', {'post': post, 
-        'comments': comments, 
-        'new_comment': new_comment, 
-        'comment_form': comment_form,
         'similar_posts': similar_posts,
         'category':category,
         'featured_post': featured_post,
@@ -145,11 +127,6 @@ def categoryPost(request, category_slug):
     })
 
 
-# class BlogUpdateView(UpdateView):
-#     model = Post
-#     template_name = 'update_view.html'
-#     fields = ('__all__')
-
 @login_required
 def new_blog_post(request):
     blog = Post.objects.all()
@@ -162,31 +139,13 @@ def new_blog_post(request):
             new_post = post_form.save(commit=False)
             # Save the post to the database
             new_post.save()
-            return redirect('/')
+            success_url = reverse_lazy('/')
+            return success_url
     else:
         post_form = PostForm()
 
     return render(request, 'post_new.html', {'blog': blog,
     'new_post': new_post, 'post_form': post_form})
-
-
-# @login_required
-# def update_view(request, slug):
-#     update_post = Post.objects.get(post__slug=slug)
-#     if request.method == 'POST':
-#         # A post was posted
-#         update_form = PostForm(request.POST, request.FILES, instance=update_post)
-#         if update_form.is_valid():
-#             # Create post object but don't save to database yet
-#             update_post = update_form.save(commit=False)
-#             # Save the post to the database
-#             update_post.save()
-#             return redirect('/')
-#     else:
-#         update_form = PostForm()
-
-#     return render(request, 'update_view.html', {
-#     'update_post': update_post, 'update_form': update_form})
 
 
 @login_required
@@ -196,7 +155,8 @@ def update_view(request, post):
         form = PostForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            return redirect('/'+post)
+            success_url = reverse_lazy('/')
+            return success_url
     else:
         form = PostForm(instance=instance)
     return render(request, 'update_view.html', {'form':form})
@@ -208,6 +168,7 @@ def delete_view(request, post):
     instance = get_object_or_404(Post, slug = post)
     if request.method == 'POST':
         instance.delete()
-        return redirect('/')
+        success_url = reverse_lazy('/')
+        return success_url
     return render(request, 'delete_view.html', context)
 

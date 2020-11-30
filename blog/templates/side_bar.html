@@ -27,7 +27,7 @@
                       <div class="recent-single-post">
                       
                         <div class="post-img">
-                          <a href="#">
+                          <a href="{{ featured.get_absolute_url }}">
                           {% if featured.thumbnail %}
                             <img src="{{featured.thumbnail.url}}" alt="{{featured.title}}" />
                           {% endif %}
@@ -35,7 +35,7 @@
                         </div>
                         <div id="colored" class="pst-content">
                           <p>
-                            <a href="#">
+                            <a href="{{ featured.get_absolute_url }}">
                               {{featured.summary|truncatewords:10|safe}}</a>
                           </p>
                         </div>

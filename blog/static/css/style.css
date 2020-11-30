@@ -356,7 +356,7 @@ div#preloader {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #f7921a;
+  color: #fff;
   border-radius: 10px;
   background: #242438;
 }
@@ -1368,6 +1368,7 @@ preview-2
   margin-bottom: 15px;
 }
 
+
 .blog-text #titles p span {
   color: #000;
   font-weight: bold;
@@ -1579,6 +1580,7 @@ preview-2
   background: #f7921a;
   border: 1px solid #000;
   text-decoration: none;
+  font-size: 18px;
 }
 
 .post-img {

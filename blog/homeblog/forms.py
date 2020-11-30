@@ -1,49 +1,19 @@
 from django import forms
 from django.db.models import fields
 from django.forms.models import ModelForm
-from .models import Post, Comment
+from .models import Post
 from django import forms
 from tinymce.widgets import TinyMCE
 
-
-
-
-# class PostForm(forms.ModelForm):
-#     class Meta:
-#         model = Post
-#         fields = ['title', 'tags']
-
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ('name', 'email', 'body')
 
 class SearchForm(forms.Form):
     query = forms.CharField()
 
 class PostForm(ModelForm):
 
-    # def __init__(self, *args, **kwargs):
-    #     super(PostForm, self).__init__(*args, **kwargs)
-    #     self.fields['thumbnail'].required = False
-
     class Meta:
         model = Post
         fields = '__all__'
-
-
-
-# class NewPostForm(ModelForm):
-#     class Meta:
-#         model = Post
-#         fields = "__all__"
-
-#     def __init__(self, *args, **kwargs):
-#         super(NewPostForm, self).__init__(*args, **kwargs)
-#         for field in iter(self.fields):
-#             self.fields[field].widget.attrs.update({
-#                 'class': 'form-control'
-#             })
 
 
 class TinyMCEWidget(TinyMCE): 
