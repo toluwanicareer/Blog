@@ -1,11 +1,13 @@
 {% load static %}
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Delete Post</title>
 
     <link
       href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
@@ -21,8 +23,8 @@
             <!-- Security token by Django -->
             {% csrf_token %} 
             <h2>Do You Really Want To Delete This Post?</h2>
-            <input class="btn btn-danger btn-block" type="submit" value="Yes" /> 
-            <a class="btn btn-success btn-block" href="{% url 'home' %}">Cancel </a> 
+            <input class="btn btn-danger btn-sm" type="submit" value="Yes" />
+            <a class="btn btn-success btn-sm" href="{% url 'home' %}">Cancel </a> 
         </form> 
     </div>
     </div> 

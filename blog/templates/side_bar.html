@@ -6,14 +6,14 @@
               <div class="page-head-blog">
                 <div class="single-blog-page">
                   <!-- search option start -->
-                  {% comment %} <form name="SearchForm" method="GET" action="{% url 'post_search' %}">
+                   {% comment %} <form name="SearchForm" method="GET" action="{% url 'search' %}">
                     <div class="search-option">
-                      <input type="text" name="SearchForm" placeholder="Search..." />
+                      <input type="text" name=SearchForm placeholder="Search..." />
                       <button class="button" type="submit">
                         <i class="fa fa-search"></i>
                       </button>
                     </div>
-                  </form> {% endcomment %}
+                  </form>  {% endcomment %}
                   <!-- search option end -->
                 </div>
                 <div class="single-blog-page">
@@ -48,18 +48,20 @@
                   <!-- recent end -->
                 </div>
 
-                {% comment %} <div class="single-blog-page">
+                <div class="single-blog-page">
                   <div class="left-blog">
                     <h4>latest posts</h4>
                     <ul>
                       {% for post in latest_posts %}
+                      
                         <li>
                           <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
                         </li>
+                      
                       {% endfor %}
                       </ul>
                   </div>
-                </div> {% endcomment %}
+                </div> 
 
                 <div class="single-blog-page">
                   <div class="left-blog">

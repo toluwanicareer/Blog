@@ -1,4 +1,4 @@
-from django.urls.base import reverse_lazy
+from django.urls.base import reverse, reverse_lazy
 from .models import Category, Post
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import SearchForm, PostForm
@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def post_list(request,  tag_slug=None):
-    object_list = Post.objects.all()
+    object_list = Post.objects.filter(status='published')
     tag = None
     
     paginator = Paginator(object_list, 3) # 3 posts in each page
@@ -27,7 +27,7 @@ def post_list(request,  tag_slug=None):
         posts = paginator.page(paginator.num_pages)
     category = Category.objects.all()
     featured_post = Post.objects.filter(featured=True).order_by('-publish')[0:4]
-    latest_posts = Post.objects.filter().order_by('-publish')[0:4]
+    latest_posts = Post.objects.filter(status='published').order_by('-publish')[0:4]
    
    
     return render(request, 'blog.html', {'page':page, 
@@ -49,7 +49,7 @@ def post_detail(request, post):
     category = Category.objects.all()
     featured_post = Post.objects.filter(featured=True).order_by('-publish')[0:4]
     tags = post.tags.names()
-    latest_posts = Post.objects.filter().order_by('-publish')[0:4]
+    latest_posts = Post.objects.filter(status='published').order_by('-publish')[0:4]
     
 
     return render(request, 'blog-details.html', {'post': post, 
@@ -139,8 +139,7 @@ def new_blog_post(request):
             new_post = post_form.save(commit=False)
             # Save the post to the database
             new_post.save()
-            success_url = reverse_lazy('/')
-            return success_url
+            return redirect('/')
     else:
         post_form = PostForm()
 
@@ -155,7 +154,7 @@ def update_view(request, post):
         form = PostForm(request.POST, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            success_url = reverse_lazy('/')
+            success_url = redirect('/')
             return success_url
     else:
         form = PostForm(instance=instance)
@@ -168,7 +167,7 @@ def delete_view(request, post):
     instance = get_object_or_404(Post, slug = post)
     if request.method == 'POST':
         instance.delete()
-        success_url = reverse_lazy('/')
+        success_url = redirect('/')
         return success_url
     return render(request, 'delete_view.html', context)
 
