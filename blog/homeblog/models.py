@@ -40,6 +40,7 @@ class Post(models.Model):
     thumbnail = models.ImageField(upload_to='images/', blank=True, null=False)
     body = HTMLField(null=False, blank=True)
     photos = models.ImageField(upload_to='photos/', blank=True, null=False)
+    video = models.FileField(upload_to='videos/', blank=True, null=True)
     summary = models.TextField(null=False, blank=True)
     slug = models.SlugField(max_length=250, unique_for_date='publish', blank=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
