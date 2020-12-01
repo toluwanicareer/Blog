@@ -280,15 +280,41 @@ div#preloader {
 }
 
 .header-bg {
-  background: url(../img/slider/abb.jpeg);
+  background: url(../img/slider/blogbg6.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top center;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+  height: 100%;
+  background-attachment: fixed;
 }
 
 @media (min-width: 1025px) {
   .header-bg {
-    background-attachment: fixed;
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+  height: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .header-bg {
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+  height: 100%;
   }
 }
 
@@ -330,7 +356,7 @@ div#preloader {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #f7921a;
+  color: #fff;
   border-radius: 10px;
   background: #242438;
 }
@@ -1342,6 +1368,7 @@ preview-2
   margin-bottom: 15px;
 }
 
+
 .blog-text #titles p span {
   color: #000;
   font-weight: bold;
@@ -1553,6 +1580,7 @@ preview-2
   background: #f7921a;
   border: 1px solid #000;
   text-decoration: none;
+  font-size: 18px;
 }
 
 .post-img {
@@ -1561,7 +1589,9 @@ preview-2
   padding: 0 5px;
   width: 100px;
   height: 50px;
+
 }
+
 
 .pst-content {
   display: inline-block;
@@ -1570,7 +1600,8 @@ preview-2
 }
 
 .pst-content p a:hover, .left-blog ul li a:hover {
-  color: #f7921a;
+  background-color: #f7921a;
+  font-size: 30px;
 }
 
 .blog-page .single-blog {

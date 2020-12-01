@@ -708,6 +708,7 @@ textarea {
 .main .delete h2 {
   font-weight: bold;
   padding: 20px;
+  text-align: left;
 }
 
 .btn .btn-danger {
@@ -719,6 +720,11 @@ textarea {
   font-size: 22px;
   border-radius: 20px;
   color: #fff;
+
+}
+
+.formdelete form {
+  display:inline;
 }
 
 .main .delete input:hover {
