@@ -36,6 +36,7 @@ class Post(models.Model):
     )
     title = models.CharField(max_length=50, blank=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True)
+    full_name = models.CharField(max_length=50, blank=True)
     thumbnail = models.ImageField(upload_to='images/', blank=True, null=False)
     body = HTMLField(null=False, blank=True)
     photos = models.ImageField(upload_to='photos/', blank=True, null=False)
