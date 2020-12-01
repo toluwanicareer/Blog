@@ -73,16 +73,33 @@
     plugins: [
       'advlist autolink link image lists charmap print preview hr anchor pagebreak',
       'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'table emoticons template paste help'
+      'table emoticons template paste help',
+      'uploadimage'
     ],
     toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
       'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-      'forecolor backcolor emoticons | help',
+      'forecolor backcolor emoticons | help | ' + 
+      'uploadimage | ',
     menu: {
       favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
     },
+    paste_data_images: true,
+    images_upload_handler: function (blobInfo, success, failure){
+      success("data:" + blobInfo.blob().type + ";base64," + blobInfo.base64());
+    },
     menubar: 'favs file edit view insert format tools table help',
-    content_css: 'css/content.css'
+    content_css: 'css/content.css',
+    link_class_list: [
+    {title: 'None', value: ''},
+    {title: 'External Link', value: 'ext_link'},
+    {title: 'Internal Links',
+      menu: [
+        {title: 'Internal Support Link', value: 'int_sup_link'},
+        {title: 'Internal Marketing Link', value: 'int_mark_link'},
+        {title: 'Other Internal Link', value: 'int_other_link'}
+      ]
+    }
+  ]
   });
   </script>
 
