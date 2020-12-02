@@ -1733,8 +1733,10 @@ preview-2
 }
 
 .pagination .step-links a:hover {
-  background-color: #f7921a;
+  font-weight: bolder;
   color: #fff;
+  color: #000;
+  font-size: larger;
 }
 
 .social-sharing {
