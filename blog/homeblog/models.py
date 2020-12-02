@@ -34,7 +34,7 @@ class Post(models.Model):
         ('draft', 'Draft'),
         ('published', 'Published'),
     )
-    title = models.CharField(max_length=50, blank=True)
+    title = models.CharField(max_length=100, blank=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True)
     full_name = models.CharField(max_length=50, blank=True)
     thumbnail = models.ImageField(upload_to='images/', blank=True, null=False)
@@ -48,7 +48,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tags = TaggableManager()
-    meta_title = models.CharField(max_length=50, blank=True)
+    meta_title = models.CharField(max_length=100, blank=True)
     meta_description = models.TextField(null=False, blank=True)
     keywords = models.CharField(max_length=100, blank=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft', blank=True)
