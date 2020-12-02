@@ -171,7 +171,7 @@ div#preloader {
   width: 100%;
   height: 100%;
   overflow: visible;
-  background: #fff url("../img/preloader.gif") no-repeat center center;
+  background: #fff url("../img/mypreload.gif") no-repeat center center;
 }
 
 ::-moz-selection {
