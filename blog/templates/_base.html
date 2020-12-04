@@ -19,12 +19,12 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.2.0/css/ionicons.min.css"
       integrity="sha256-F3Xeb7IIFr1QsWD113kV2JXaEbjhsfpgrKkwZFGIA4E="
       crossorigin="anonymous"
-    />
+    /> -->
     <link
       href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
       rel="stylesheet"
@@ -87,37 +87,64 @@
     </header>
     <!-- End Header -->
 
+
+     <!-- ======= Blog Header ======= -->
     <main id="main">
-      <!-- ======= Blog Header ======= -->
-      <div class="header-bg page-area">
-        <div class="home-overly"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="slider-content text-center">
-                <div class="header-bottom">
-                  <div
-                    class="layer2 wow zoomIn"
-                    data-wow-duration="1s"
-                    data-wow-delay=".4s"
-                  >
-                    <h1 class="title2">Welcome To Our Blog</h1>
+      <div id="home" class="slider-area">
+        <div class="bend niceties preview-2">
+          <div id="ensign-nivoslider" class="slides">
+            <img src="{% static 'img/slider/blogbg6.jpg' %}" alt="Homepage | Giftcard" title="#slider-direction-1" />
+            <img src="{% static 'img/slider/bitcoin3.jpg' %}" alt="Homepage | Giftcard" title="#slider-direction-2" />
+          </div>
+
+
+              <!-- direction 1 -->
+    <div id="slider-direction-1" class="slider-direction slider-one">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="slider-content">
+              <!-- layer 1 -->
+              <div class="layer-1-1 hidden-xs wow animate__slideInDown animate__animated" data-wow-duration="2s"
+                data-wow-delay=".2s">
+                <h2 class="title1">Welcome To Blog | Cordial Exchange</h2>
+              </div>
+              <!-- layer 2 -->
+              <div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".2s">
+                <h1 class="title2">Providing Insights To Teach, Support and Grow</h1>
+              </div>
+              <!-- layer 3 -->
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- direction 2 -->
+        <div id="slider-direction-2" class="slider-direction slider-two">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="slider-content text-center">
+                  <!-- layer 1 -->
+                  <div class="layer-1-1 hidden-xs wow animate__slideInUp animate__animated" data-wow-duration="2s"
+                    data-wow-delay=".2s">
+                    <h2 class="title1">Bitcoin and Giftcards </h2>
                   </div>
-                  <div
-                    class="layer3 wow zoomInUp"
-                    data-wow-duration="2s"
-                    data-wow-delay="1s"
-                  >
-                    <h2 class="title3">Providing Insights To Teach, Support and Grow</h2>
+                  <!-- layer 2 -->
+                  <div class="layer-1-2 wow animate__fadeIn animate__animated" data-wow-duration="2s" data-wow-delay=".1s">
+                    <h1 class="title2">Trade Your Bitcoin and Giftcards With Us</h1>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- End Blog Header -->
-
+    </div>
+  </div>
+<!-- End Blog Header -->
+     
             <!-- ======= Blog Page ======= -->
       <div class="blog-page area-padding">
         <div class="container">
