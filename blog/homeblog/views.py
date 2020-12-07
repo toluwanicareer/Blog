@@ -96,11 +96,13 @@ def tagsPost(request, tag):
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
     category = Category.objects.all()
-    featured_post = Post.objects.filter(featured=True)
+    featured_post = Post.objects.filter(featured=True).order_by('-publish')[0:4]
+    latest_posts = Post.objects.filter(status='published').order_by('-publish')[0:4]
     return render(request, 'blog.html', {'page':page, 
         'posts': posts, 
         'category':category, 
         'featured_post': featured_post,
+        'latest_posts': latest_posts
     })
 
 
@@ -117,11 +119,13 @@ def categoryPost(request, category_slug):
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
     category = Category.objects.all()
-    featured_post = Post.objects.filter(featured=True)
+    featured_post = Post.objects.filter(featured=True).order_by('-publish')[0:4]
+    latest_posts = Post.objects.filter(status='published').order_by('-publish')[0:4]
     return render(request, 'blog.html', {'page':page, 
         'posts': posts, 
         'category':category, 
         'featured_post': featured_post,
+        'latest_posts': latest_posts
     })
 
 
