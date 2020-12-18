@@ -103,7 +103,8 @@
                   </div>
                 </div>
 
-              {% if user.is_authenticated.is_staff %}
+              {% if user.is_authenticated %}
+               {% if user.is_staff %}
                 <div class="single-blog-page">
                   <div class="left-blog">
                     <h4>Draft</h4>
@@ -116,8 +117,9 @@
                     </ul>
                   </div>
                 </div>
+                {% endif %}
               {% endif %}
-              
+
               </div>
             </div>
             <!-- End left sidebar -->
