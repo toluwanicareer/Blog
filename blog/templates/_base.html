@@ -77,9 +77,7 @@
               <li><a href="{% url 'post_new' %}">Create Post</a></li>
               <li><a href="{% url 'logout' %}">Logout</a></li>
             {% endif %}
-            {% comment %} {% if user.is_authenticated %}
-              <li><a href="{% url 'post_new' %}">Create Post</a></li>
-            {% endif %} {% endcomment %}
+            
           </ul>
         </nav>
         <!-- .nav-menu -->

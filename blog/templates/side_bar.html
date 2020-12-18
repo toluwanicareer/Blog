@@ -99,9 +99,25 @@
                         </li>
                         {% empty %} <p><em>There are no similar posts yet.</em></p> {% endfor %}</div>
                         </ul>
-                {% endif %}
+                  {% endif %}
                   </div>
                 </div>
+
+              {% if user.is_authenticated.is_staff %}
+                <div class="single-blog-page">
+                  <div class="left-blog">
+                    <h4>Draft</h4>
+                    <ul>
+                    {% for d in draft  %}
+                      <li>
+                        <a href="{{ d.get_absolute_url }}">{{ d }}</a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              {% endif %}
+              
               </div>
             </div>
             <!-- End left sidebar -->

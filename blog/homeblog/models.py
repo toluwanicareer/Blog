@@ -20,7 +20,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail',
-            args=[self.title, self.created_at, self.slug])
+            args=[self.slug])
 
     class Meta:
         verbose_name_plural = "Categories"

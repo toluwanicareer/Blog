@@ -28,18 +28,18 @@ def post_list(request,  tag_slug=None):
     category = Category.objects.all()
     featured_post = Post.objects.filter(featured=True).order_by('-publish')[0:4]
     latest_posts = Post.objects.filter(status='published').order_by('-publish')[0:4]
-   
+    draft = Post.objects.filter(status='draft').order_by('-publish')[0:4]
    
     return render(request, 'blog.html', {'page':page, 
         'posts': posts, 
         'category': category, 
         'featured_post': featured_post,
         'latest_posts': latest_posts,
+        'draft':draft,
     })
 
 def post_detail(request, post):
     post = get_object_or_404(Post, slug=post,
-        status='published',
         )
 
     # List of similar posts
@@ -50,6 +50,7 @@ def post_detail(request, post):
     featured_post = Post.objects.filter(featured=True).order_by('-publish')[0:4]
     tags = post.tags.names()
     latest_posts = Post.objects.filter(status='published').order_by('-publish')[0:4]
+    draft = Post.objects.filter(status='draft').order_by('-publish')[0:4]
     
 
     return render(request, 'blog-details.html', {'post': post, 
@@ -58,7 +59,10 @@ def post_detail(request, post):
         'featured_post': featured_post,
         'featured_tags':tags,
         'latest_posts': latest_posts,
+        'draft': draft,
         })
+
+
 
     
 def post_search(request):
