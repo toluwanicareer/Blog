@@ -160,7 +160,7 @@ TINYMCE_DEFAULT_CONFIG = {
             fullscreen preview bold italic underline | fontselect,
             fontsizeselect  | forecolor backcolor | alignleft alignright |
             aligncenter alignjustify | indent outdent | bullist numlist table |
-            | link image media filebrowser | codesample |
+            | link image media | codesample |
             ''',
     'toolbar2': '''
             visualblocks visualchars |
