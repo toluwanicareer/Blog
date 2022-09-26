@@ -6,97 +6,146 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
+  <!-- Required meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
 
-    <!-- Title Page-->
-    <title>Create A New Blog Post</title>
+  <!-- Title Page-->
+  <title>Create A New Blog Post</title>
 
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <!-- Font special for pages-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+    rel="stylesheet">
 
-    <link
-      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
-      rel="stylesheet"/>
-    <!-- Main CSS-->
-    <link href="{% static 'css/form.css' %}" rel="stylesheet" media="all">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+  <!-- Main CSS-->
+  <link href="{% static 'css/form.css' %}" rel="stylesheet" media="all">
 
-    <script
-        type="text/javascript"
-        src='https://cdn.tiny.cloud/1/asaiq8ufshaej6j2hkt9mw8h1h9s4i6q5lfrt34odv2ijhkk/tinymce/5/tinymce.min.js'
-        referrerpolicy="origin">
-  </script>
+  <script type="text/javascript"
+    src='https://cdn.tiny.cloud/1/asaiq8ufshaej6j2hkt9mw8h1h9s4i6q5lfrt34odv2ijhkk/tinymce/5/tinymce.min.js'
+    referrerpolicy="origin">
+    </script>
 </head>
 
 <body>
-    <div class="page-wrapper bg-dark p-t-100 p-b-50">
-        <div class="wrapper wrapper--w900">
-            <div class="card card-6">
-                <div class="card-heading">
-                    <h2 class="title">Create A Post</h2>
-                </div>
-                <div class="card-body">
-                    <form action="" class="formfes" method="POST" enctype="multipart/form-data">
-                        <div class="form-row"> 
-                             <div class="name value">
-                                {% csrf_token %}
-                                {{post_form|crispy}}
-                                <textarea name="" id="" cols="30" rows="10" style="display: none;"></textarea>
-                                <input class="btn btn--radius-2 btn--blue-2" type="submit" value="Save">
-                                
-                                
-                            </div>
-                        </div> 
-                        
-                    </form>
-                    <div style="text-align: center;"><a href="/" class="btn btn-secondary" >Back</a></div>
-                    
-                </div>
-                <div class="card-footer">
-                    
-                </div>
-            </div>
+  <div class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div class="wrapper wrapper--w900">
+      <div class="card card-6">
+        <div class="card-heading">
+          <h2 class="title">Create A Post</h2>
         </div>
+        <div class="card-body">
+          <form action="" class="formfes" method="POST" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="name value">
+                {% csrf_token %}
+                {{post_form|crispy}}
+                <textarea name="" id="" cols="30" rows="10" style="display: none;"></textarea>
+                <input class="btn btn--radius-2 btn--blue-2" type="submit" value="Save">
+
+
+              </div>
+            </div>
+
+          </form>
+          <div style="text-align: center;"><a href="/" class="btn btn-secondary">Back</a></div>
+
+        </div>
+        <div class="card-footer">
+
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Jquery JS-->
-    <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <!-- Jquery JS-->
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
 
 
-    <!-- Main JS-->
-    <script src="{% static 'js/form.js' %}"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-    plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'table emoticons template paste help'
-    ],
-    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-      'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-      'forecolor backcolor emoticons | help',
-    menu: {
-      favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
-    },
-    menubar: 'favs file edit view insert format tools table help',
-    content_css: 'css/content.css',
-    link_class_list: [
-    {title: 'None', value: ''},
-    {title: 'External Link', value: 'ext_link'},
-    {title: 'Internal Links',
-      menu: [
-        {title: 'Internal Support Link', value: 'int_sup_link'},
-        {title: 'Internal Marketing Link', value: 'int_mark_link'},
-        {title: 'Other Internal Link', value: 'int_other_link'}
+  <!-- Main JS-->
+  <script src="{% static 'js/form.js' %}"></script>
+  <script>
+    function customUploadHandler(blobInfo, success, failure, progress) {
+      var xhr, formData;
+      var csrftoken = '{{csrf_token}}';
+
+      xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+      xhr.open('POST', '/image/upload/');
+      xhr.setRequestHeader("X-CSRFToken", csrftoken)
+
+      xhr.upload.onprogress = function (e) {
+        progress(e.loaded / e.total * 100);
+      };
+
+      xhr.onload = function() {
+        var json;
+
+        if (xhr.status === 403) {
+          failure('HTTP Error: ' + xhr.status, { remove: true });
+          return;
+        }
+
+        if (xhr.status < 200 || xhr.status >= 300) {
+          failure('HTTP Error: ' + xhr.status);
+          return;
+        }
+
+        json = JSON.parse(xhr.responseText);
+
+        if (!json || typeof json.location != 'string') {
+          failure('Invalid JSON: ' + xhr.responseText);
+          return;
+        }
+
+        success(json.location);
+      };
+
+      xhr.onerror = function () {
+        failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+      };
+
+      formData = new FormData();
+      formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+      xhr.send(formData);
+    };
+
+    tinymce.init({
+      selector: 'textarea',
+      image_uploadtab: true,
+      // images_upload_url: "/upload_image/",
+      images_upload_credentials: true,
+      images_upload_handler: customUploadHandler,
+      plugins: [
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+        'table emoticons template paste help'
+      ],
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+        'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+        'forecolor backcolor emoticons | help',
+      menu: {
+        favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+      },
+      menubar: 'favs file edit view insert format tools table help',
+      content_css: 'css/content.css',
+      link_class_list: [
+        { title: 'None', value: '' },
+        { title: 'External Link', value: 'ext_link' },
+        {
+          title: 'Internal Links',
+          menu: [
+            { title: 'Internal Support Link', value: 'int_sup_link' },
+            { title: 'Internal Marketing Link', value: 'int_mark_link' },
+            { title: 'Other Internal Link', value: 'int_other_link' }
+          ]
+        }
       ]
-    }
-  ]
-  });
+    });
   </script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->

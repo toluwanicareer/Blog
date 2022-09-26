@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import categoryPost, post_list, post_detail, tagsPost, new_blog_post, update_view, delete_view
+from .views import categoryPost, post_list, post_detail, tagsPost, new_blog_post, update_view, delete_view, upload_image
 
 urlpatterns = [
     # path('', NewPostView, name='new'),
@@ -11,5 +11,6 @@ urlpatterns = [
     path('<slug:post>/', post_detail, name='post_detail'),
     path('tags/<slug:tag>/', tagsPost, name='tag_posts'),
     path('category/<slug:category_slug>/', categoryPost, name='category_posts'),
+    path('image/upload/', upload_image),
     # path('search/', post_search, name='post_search'),
 ]
