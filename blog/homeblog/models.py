@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.urls import reverse, reverse_lazy
@@ -64,6 +65,12 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail',
             args=[self.slug])
+    
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+
+        return super().save(*args, **kwargs)
 
 
 
